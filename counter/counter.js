@@ -28,7 +28,7 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-const counterRef = ref(db, "counter");
+const dbRef = ref(db);
 
 const counter = document.querySelector('#counter');
 let count = 0
@@ -36,12 +36,12 @@ const setCounter = (new_count) => {
     count = new_count;
     counter.innerHTML = `count is ${count}`;
 
-    set(counterRef, {
+    set(dbRef, {
         count: count
     }).then(r => console.log(r));
 };
 counter.addEventListener('click', () => setCounter(count + 1))
-onValue(counterRef, (snapshot) => {
+onValue(dbRef, (snapshot) => {
     if (snapshot.exists()) {
         const data = snapshot.val();
         setCounter(data["count"])
