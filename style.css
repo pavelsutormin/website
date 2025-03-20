@@ -18,6 +18,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -67,6 +68,35 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  position: fixed;
+}
+
+.navbar-item {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar-item:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar-item.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -79,5 +109,25 @@ button:focus-visible {
 
   button {
     background-color: #f9f9f9;
+  }
+
+  .navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #cccccc;
+  }
+
+  .navbar-item a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .navbar-item a:hover {
+    background-color: #eeeeee;
   }
 }
