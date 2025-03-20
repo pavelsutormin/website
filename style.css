@@ -47,6 +47,12 @@ h1 {
   padding: 2em;
 }
 
+.count-area {
+  font-size: 2em;
+  font-weight: 500;
+  font-family: inherit;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;

@@ -11,36 +11,40 @@ document.querySelector('#app').innerHTML = `
     <h1>This is a counter!</h1>
     <h3>Everybody on this page can click it and they will all see 1 added.</h3>
     <div class="card">
-      <button id="counter" type="button"></button>
+        <p class="count-area" id="count-area"></p>
+        <br>
+        <button id="counter-p" type="button">Add 1</button>
+        <button id="counter-m" type="button">Subtract 1</button>
     </div>
 </div>
 `
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDISkQ8lbrwGlpVrhRKkrce1V9ASil02-Q",
     authDomain: "pasha-website.firebaseapp.com",
     databaseURL: "https://pasha-website-default-rtdb.firebaseio.com",
     projectId: "pasha-website",
     storageBucket: "pasha-website.firebasestorage.app",
-    messagingSenderId: "196521440659",
-    appId: "1:196521440659:web:0ee764053e7080e6dce466",
-    measurementId: "G-5LPWDB0P15"
 };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const dbRef = ref(db);
 
-const counter = document.querySelector('#counter');
+const countArea = document.querySelector('#count-area');
+const counterP = document.querySelector('#counter-p');
+const counterM = document.querySelector('#counter-m');
 let count = 0
+
 const setCounter = (new_count) => {
     count = new_count;
-    counter.innerHTML = `count is ${count}`;
+    countArea.innerHTML = `count is ${count}`;
 
     set(dbRef, {
         count: count
     }).then(r => console.log(r));
 };
-counter.addEventListener('click', () => setCounter(count + 1))
+counterP.addEventListener('click', () => setCounter(count + 1))
+counterM.addEventListener('click', () => setCounter(count - 1))
+
 onValue(dbRef, (snapshot) => {
     if (snapshot.exists()) {
         const data = snapshot.val();
