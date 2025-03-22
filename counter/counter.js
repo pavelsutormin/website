@@ -1,20 +1,18 @@
+import {get_navbar} from "/Users/pavelsutormin/WebstormProjects/website/utils.js"
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import '/style.css'
 
 document.querySelector('#app').innerHTML = `
-<div class="navbar">
-    <a class="navbar-item" href="/">Home</a>
-    <a class="navbar-item active" href="/counter/">Counter</a>
-</div>
+${get_navbar("counter")}
 <div>
     <h1>This is a counter!</h1>
     <h3>Everybody on this page can click it and they will all see 1 added.</h3>
     <div class="card">
-        <p class="count-area" id="count-area"></p>
+        <p class="count-area" id="count-area">count is -</p>
         <br>
-        <button id="counter-p" type="button">Add 1</button>
-        <button id="counter-m" type="button">Subtract 1</button>
+        <button id="counter-p">Add 1</button>
+        <button id="counter-m">Subtract 1</button>
     </div>
 </div>
 `
