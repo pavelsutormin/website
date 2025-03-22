@@ -1,4 +1,4 @@
-import {get_navbar} from "/Users/pavelsutormin/WebstormProjects/website/utils.js"
+import {get_navbar} from "/utils.js"
 import '/style.css'
 
 document.querySelector('#app').innerHTML = `

@@ -1,4 +1,4 @@
-import {get_navbar} from "/Users/pavelsutormin/WebstormProjects/website/utils.js"
+import {get_navbar} from "/utils.js"
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, onValue } from "firebase/database";
 import '/style.css'
