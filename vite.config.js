@@ -5,6 +5,7 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
+                utils: resolve(__dirname, 'utils.js'),
                 main: resolve(__dirname, 'index.html'),
                 counter: resolve(__dirname, 'counter/index.html'),
                 bml_maker: resolve(__dirname, 'bml_maker/index.html'),
